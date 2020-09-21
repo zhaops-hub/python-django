@@ -1,0 +1,10 @@
+version: "3"
+services:
+  faceadmin:
+    restart: always
+    image: faceadmin:0.1
+    command: "python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
