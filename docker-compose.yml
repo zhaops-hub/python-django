@@ -6,5 +6,13 @@ services:
     command: "python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
+      - ./source/base.py:/usr/local/lib/python3.8/site-packages/django/db/backends/mysql/base.py  # 这个文件是链接mysql时的问题，修改了源码了
     ports:
       - "8000:8000"
+  faceadminide:
+    image: kdelfour/cloud9-docker
+    volumes:
+      - .:/workspace/
+    restart: always
+    ports:
+      - 801:80
