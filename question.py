@@ -42,9 +42,11 @@ class Producer(threading.Thread):
         while ret:
             # if ret == True:
 
+            imgGray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)  # 彩色图像转灰度
+
             self.outVideo.write(image)
 
-            cv2.imshow('video', image)
+            cv2.imshow('video', imgGray)
 
             cv2.waitKey(int(1000 / int(self.fps)))  # 延迟
 
