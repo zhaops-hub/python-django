@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from domain.views import reg
+from domain.views import get_image, face_detect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', reg)
+    path('test/', get_image),
+    path('facedetect/', face_detect)
 ]
