@@ -3,7 +3,7 @@ services:
   faceadmin:
     restart: always
     container_name: faceadmin
-    image: faceadmin:0.1
+    image: faceadmin:0.2
     command: "python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code

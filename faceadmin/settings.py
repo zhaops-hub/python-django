@@ -79,8 +79,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql', # 数据库引擎
         'NAME': 'faceadmin', # 数据库名
         'USER': 'root', # 账号
-        'PASSWORD': 'soyuan.123', # 密码
-        'HOST': '172.16.100.61', # HOST
+        'PASSWORD': 'abc123', # 密码
+        'HOST': '192.168.0.103', # HOST
         'POST': 3306, # 端口
     }
 }
