@@ -2,6 +2,7 @@ version: "3"
 services:
   faceadmin:
     restart: always
+    container_name: faceadmin
     image: faceadmin:0.1
     command: "python manage.py runserver 0.0.0.0:8000"
     volumes:
@@ -11,8 +12,23 @@ services:
       - "8000:8000"
   faceadminide:
     image: kdelfour/cloud9-docker
+    container_name: faceadminide
     volumes:
       - .:/workspace/
     restart: always
     ports:
       - 801:80
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - /home/mysql_data/logs:/var/log/mysql
+      - /home/mysql_data/data:/var/lib/mysql
+      - /etc/localtime:/etc/localtime
+    environment:
+      MYSQL_ROOT_PASSWORD: abc123
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci --lower_case_table_names=1
+    restart: always
+
