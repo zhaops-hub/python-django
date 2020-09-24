@@ -8,15 +8,22 @@ RUN mkdir /code
 WORKDIR /code
 
 
-RUN pip install pip -U
+# 安装依赖库
+RUN rm -rf /etc/apt/sources.list
+ADD ./sources.list /etc/apt/
+RUN cat /etc/apt/sources.list
+RUN apt update
+RUN apt install -y libgl1-mesa-dev
 
-RUN mkdir -p ~/.pip
 
 # pip设置国内源
+RUN pip install pip -U
+RUN mkdir -p ~/.pip
 ADD ./pip.conf /code/
 RUN mv /code/pip.conf ~/.pip
 
 ADD requirements.txt /code/
 RUN pip install -r requirements.txt
+
 
 ADD . /code/
